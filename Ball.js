@@ -16,8 +16,8 @@ class Ball {
   }
 
   nextFrame() {
-    let F = this.calculateForce();
-    let a = this.calculateAcceleration(F);
+    const F = this.calculateForce();
+    const a = this.calculateAcceleration(F);
     this.velocity.y += a / FRAME_RATE;
 
     if (this.y < HEIGHT - this.radius) {
@@ -36,7 +36,7 @@ class Ball {
   };
   
   calculateForce() {
-    let force = -0.5 * Cd * this.area * Rho * this.velocity.y * this.velocity.y * this.velocity.y / Math.abs(this.velocity.y);
+    const force = -0.5 * Cd * this.area * Rho * this.velocity.y * this.velocity.y * this.velocity.y / Math.abs(this.velocity.y);
     return (isNaN(force) ? 0 : force);
   };
 
