@@ -20,16 +20,10 @@ class Ball {
     const a = this.calculateAcceleration(F);
     this.velocity.y += a / FRAME_RATE;
 
-    if (this.y < HEIGHT - this.radius) {
-      this.x += this.velocity.x;
-      this.y += this.velocity.y;
-      return
-    }
+    if (this.objectIsFloating())
+      return this.accelerateObject(this.velocity.x, this.velocity.y);
     
-    if (this.velocity.x < 0)
-      this.velocity.x = this.velocity.x < 0 ? this.velocity.x + FRICTION : 0;
-    else
-      this.velocity.x = this.velocity.x > 0 ? this.velocity.x - FRICTION : 0;
+    this.applyFriction();
 
     this.x += this.velocity.x;
     this.y = HEIGHT - this.radius;
@@ -42,5 +36,22 @@ class Ball {
 
   calculateAcceleration(force) {
     return ag + (force / this.mass);
+  };
+
+  accelerateObject(x, y) {
+    this.x += x;
+    this.y += y;
+  };
+
+  objectIsFloating() {
+    return (this.y < HEIGHT - this.radius) ? true : false;
+  };
+
+  applyFriction() {
+    this.objectIsGoingLeft() ? this.velocity.x += FRICTION : this.velocity.x -= FRICTION;
+  };
+
+  objectIsGoingLeft() {
+    return this.velocity.x < 0 ? true : false;
   };
 };

@@ -8,12 +8,20 @@ const frameRender = function() {
   ctx.clearRect(0, 0, WIDTH, HEIGHT);
 
   physicalObjects.forEach((object, index, parent) => {
-    if (object.x >= WIDTH + object.radius || object.x <= -object.width)
-      parent.splice(index, 1);
+    if (objectLeavedScreen(object))
+      deleteObject(parent, index);
 
     draw(object);
     object.nextFrame();
   });
+};
+
+function objectLeavedScreen(object) {
+  return (object.x >= WIDTH + object.radius || object.x <= -object.radius) ? true : false;
+};
+
+function deleteObject(parent, index) {
+  parent.splice(index, 1);
 };
 
 function draw(obj) {

@@ -5,16 +5,23 @@ let yStart;
 let xEnd;
 let yEnd;
 
-window.addEventListener('mousedown', (e) => [xStart, yStart] = [e.offsetX, e.offsetY]);
-window.addEventListener('mouseup', (e) => {
-  [xEnd, yEnd] = [e.offsetX, e.offsetY];
-  let xVel = (xEnd - xStart) / 50;
-  let yVel = (yEnd - yStart) / 50;
+window.addEventListener('mousedown', assignStartCoords);
+window.addEventListener('mouseup', createObject);
 
-  const r = Math.floor((Math.random() * 205) + 50);
-  const g = Math.floor((Math.random() * 205) + 50);
-  const b = Math.floor((Math.random() * 205) + 50);
+function assignStartCoords(e) {
+  [xStart, yStart] = [e.offsetX, e.offsetY];
+};
 
+function assignEndCoords(x, y) {
+  [xEnd, yEnd] = [x, y];
+};
+
+function createObject(e) {
+  assignEndCoords(e.offsetX, e.offsetY);
+  let xVel = computeVelocity(xStart, xEnd);
+  let yVel = computeVelocity(yStart, yEnd);
+
+  const color = createRandomColor();
   const radius = Math.floor((Math.random() * 35) + 5);
 
   physicalObjects.push(new Ball({
@@ -23,8 +30,24 @@ window.addEventListener('mouseup', (e) => {
     radius,
     xVel,
     yVel,
-    color: `rgb(${r}, ${g}, ${b})`
+    color: `rgb(${color.red}, ${color.green}, ${color.blue})`
   }));
 
+  resetCoords();
+};
+
+function computeVelocity(start, end) {
+  return ((end - start) / 50);
+};
+
+function createRandomColor() {
+  return {
+    red: Math.floor((Math.random() * 205) + 50),
+    green: Math.floor((Math.random() * 205) + 50),
+    blue: Math.floor((Math.random() * 205) + 50)
+  };
+};
+
+function resetCoords() {
   [xStart, yStart, xEnd, yEnd] = [0, 0, 0, 0];
-});
+};
