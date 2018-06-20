@@ -18,20 +18,33 @@ function assignEndCoords(x, y) {
 
 function createObject(e) {
   assignEndCoords(e.offsetX, e.offsetY);
-  let xVel = computeVelocity(xStart, xEnd);
-  let yVel = computeVelocity(yStart, yEnd);
+  const xVel = computeVelocity(xStart, xEnd);
+  const yVel = computeVelocity(yStart, yEnd);
 
   const color = createRandomColor();
   const radius = Math.floor((Math.random() * 35) + 5);
 
-  physicalObjects.push(new Ball({
-    x: xStart,
-    y: yStart,
-    radius,
-    xVel,
-    yVel,
-    color: `rgb(${color.red}, ${color.green}, ${color.blue})`
-  }));
+  if (environment === 'earth') {
+    physicalObjects.push(new Ball({
+      x: xStart,
+      y: yStart,
+      radius,
+      xVel,
+      yVel,
+      color: `rgb(${color.red}, ${color.green}, ${color.blue})`
+    }));
+  }
+
+  if (environment === 'space') {
+    physicalObjects.push(new Celestial({
+      x: xStart,
+      y: yStart,
+      radius,
+      xVel,
+      yVel,
+      color: `rgb(${color.red}, ${color.green}, ${color.blue})`
+    }));
+  }
 
   resetCoords();
 };
