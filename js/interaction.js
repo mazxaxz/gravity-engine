@@ -5,9 +5,6 @@ let yStart;
 let xEnd;
 let yEnd;
 
-window.addEventListener('mousedown', assignStartCoords);
-window.addEventListener('mouseup', createObject);
-
 function assignStartCoords(e) {
   [xStart, yStart] = [e.offsetX, e.offsetY];
 };
@@ -64,3 +61,6 @@ function createRandomColor() {
 function resetCoords() {
   [xStart, yStart, xEnd, yEnd] = [0, 0, 0, 0];
 };
+
+window.addEventListener('mousedown', assignStartCoords);
+window.addEventListener('mouseup', createObject);
