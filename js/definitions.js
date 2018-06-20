@@ -6,4 +6,4 @@ const Cd = 0.47;
 const Rho = 1.22; // Air density
 const ag = 9.81;  // Gravity
 
-let environment = 'space';
+let environment = 'earth';

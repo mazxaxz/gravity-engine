@@ -62,5 +62,5 @@ function resetCoords() {
   [xStart, yStart, xEnd, yEnd] = [0, 0, 0, 0];
 };
 
-window.addEventListener('mousedown', assignStartCoords);
-window.addEventListener('mouseup', createObject);
+canvas.addEventListener('mousedown', assignStartCoords);
+canvas.addEventListener('mouseup', createObject);
