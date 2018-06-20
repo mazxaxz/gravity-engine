@@ -19,7 +19,6 @@ function createObject(e) {
   const yVel = computeVelocity(yStart, yEnd);
 
   const color = createRandomColor();
-  const radius = Math.floor((Math.random() * 35) + 5);
 
   if (environment === 'earth') {
     physicalObjects.push(new Ball({

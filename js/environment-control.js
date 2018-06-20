@@ -1,10 +1,12 @@
-const controls = document.querySelectorAll('[data-env]');
+const environmentControls = document.querySelectorAll('[data-env]');
+const massControler = document.querySelector('[name="mass-control"]');
+const massValue = document.querySelector('#mass-value');
 
 function changeEnvironment() {
   environment = this.dataset.env;
 
   this.classList.add('active');
-  controls.forEach(control => {
+  environmentControls.forEach(control => {
     if (control !== this)
       return control.classList.remove('active');
   });
@@ -12,4 +14,10 @@ function changeEnvironment() {
   physicalObjects.splice(0, physicalObjects.length);
 };
 
-controls.forEach(control => control.addEventListener('click', changeEnvironment));
+function changeMass() {
+  massValue.textContent = this.value;
+  radius = this.value / 10;
+};
+
+environmentControls.forEach(control => control.addEventListener('click', changeEnvironment));
+massControler.addEventListener('input', changeMass);

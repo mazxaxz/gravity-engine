@@ -7,3 +7,4 @@ const Rho = 1.22; // Air density
 const ag = 9.81;  // Gravity
 
 let environment = 'earth';
+let radius = 20;
