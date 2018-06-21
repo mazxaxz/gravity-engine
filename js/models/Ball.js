@@ -11,10 +11,7 @@ class Ball extends Object {
     if (this.objectIsFloating())
       return this.accelerateObject(this.velocity.x, this.velocity.y);
     
-    this.applyFriction();
-
-    this.x += this.velocity.x;
-    this.y = HEIGHT - this.radius;
+    this.handleGroundHit();
   };
   
   calculateForce() {
@@ -26,13 +23,21 @@ class Ball extends Object {
     return ag + (force / this.mass);
   };
 
+  objectIsFloating() {
+    return (this.y <= HEIGHT - this.radius) ? true : false;
+  };
+
   accelerateObject(x, y) {
     this.x += x;
     this.y += y;
   };
 
-  objectIsFloating() {
-    return (this.y < HEIGHT - this.radius) ? true : false;
+  handleGroundHit() {
+    this.applyFriction();
+
+    this.x += this.velocity.x;
+    this.velocity.y *= BOUNCE_FACTOR;
+    this.y = HEIGHT - this.radius;
   };
 
   applyFriction() {

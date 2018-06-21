@@ -25,11 +25,11 @@ const frameRender = function() {
         }
 
         if (object.mass >= neighbour.mass) {
-          absorbSmaller(object, neighbour);
+          absorb(object, neighbour);
           return deleteObject(parent, neighbourIndex);
         }
 
-        absorbSmaller(neighbour, object);
+        absorb(neighbour, object);
         deleteObject(parent, objectIndex);
       });
     }
@@ -70,7 +70,7 @@ function applyGravity(object, force, diff, distance) {
   object.velocity.y += force * diff.y / distance;
 };
 
-function absorbSmaller(absorber, taken) {
+function absorb(absorber, taken) {
   absorber.mass += taken.mass;
   absorber.radius += taken.radius;
 };
