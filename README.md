@@ -84,7 +84,7 @@ As you can see we are working on two seperate objects, so it had to be handled w
 Absorbing is even simpler, we just add the colider's **mass** and **radius** to absorbing object properties and then delete the less massive one.
 
 ## Constants
-What is going on with [these](./js/definitions) constant values? Well, let me explain this for you.
+What is going on with [these](./js/definitions.js) constant values? Well, let me explain this for you.
 
 ```javascript
 3  const FRAME_RATE = 60;
