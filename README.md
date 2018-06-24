@@ -83,6 +83,10 @@ As you can see we are working on two seperate objects, so it had to be handled w
 
 Absorbing is even simpler, we just add the colider's **mass** and **radius** to absorbing object properties and then delete the less massive one.
 
+## Distribution
+After changing Javascript or css files you can use `npm run build` in `cmd` to bundle the files into dist folder.
+`npm run build` is a shortcut for `gulp bundle` and `gulp mincss`.
+
 ## Constants
 What is going on with [these](./js/definitions.js) constant values? Well, let me explain this for you.
 
