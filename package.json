@@ -1,0 +1,30 @@
+{
+  "name": "Gravity Engine",
+  "version": "1.0.0",
+  "description": "Simple Gravity Engine",
+  "main": "src/index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "gulp bundle && gulp mincss"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mazxaxz/gravity-engine.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mazxaxz/gravity-engine/issues"
+  },
+  "homepage": "https://github.com/mazxaxz/gravity-engine#readme",
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^7.0.1",
+    "gulp-babel-minify": "^0.4.3",
+    "gulp-clean-css": "^3.9.4",
+    "gulp-concat": "^2.6.1",
+    "gulp-concat-css": "^3.1.0"
+  }
+}
