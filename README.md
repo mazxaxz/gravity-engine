@@ -84,6 +84,8 @@ As you can see we are working on two seperate objects, so it had to be handled w
 Absorbing is even simpler, we just add the colider's **mass** and **radius** to absorbing object properties and then delete the less massive one.
 
 ## Distribution
+`npm install` to install all dev dependencies.  
+
 After changing Javascript or css files you can use `npm run build` in `cmd` to bundle the files into dist folder.
 `npm run build` is a shortcut for `gulp bundle` and `gulp mincss`.
 
@@ -109,4 +111,4 @@ What is going on with [these](./js/definitions.js) constant values? Well, let me
 | **ag** | Constant of the gravity acceleration, Earth have ~9.81. You can try other planets for example Mars - 3.71 (+ Rho = 0.02) |
 
 ## Acknowledgements
-Since, I know no one is reading this documentation, I would like to thank to myself for writing these lines of text knowing it won't help anybody. Pozdro
+Since, I know no one is reading this documentation, I would like to thank to myself for writing these lines of text despite knowing it won't help anybody. Nice work Adrian
