@@ -1,4 +1,4 @@
-class Object {
+class Body {
   constructor(options) {
     this.x = options.x;
     this.y = options.y;

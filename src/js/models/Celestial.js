@@ -1,4 +1,4 @@
-class Celestial extends Object {
+class Celestial extends Body {
   constructor(options) {
     super(options);
   }

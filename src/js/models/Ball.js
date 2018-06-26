@@ -1,4 +1,4 @@
-class Ball extends Object {
+class Ball extends Body {
   constructor(options) {
     super(options);
   }

@@ -10,13 +10,13 @@ gulp.task('bundle', () => {
   return gulp
     .src([
       'src/js/definitions.js',
-      'src/js/models/Object.js',
-      'src/js/models/!(Object)*.js',
+      'src/js/models/Body.js',
+      'src/js/models/!(Body)*.js',
       'src/js/!(definitions)*.js'
     ])
-    // .pipe(babel({
-    //   presets: ['env']
-    // }))
+    .pipe(babel({
+      presets: ['env']
+    }))
     .pipe(concat('bundle.js'))
     .pipe(minify())
     .pipe(gulp.dest('dist'));
